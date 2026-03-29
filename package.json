@@ -1,0 +1,28 @@
+{
+  "name": "agent-shared-memory",
+  "version": "1.0.0",
+  "description": "让 AI Agent 的多个渠道共享同一份记忆和任务板",
+  "main": "scripts/setup.js",
+  "scripts": {
+    "setup": "node scripts/setup.js",
+    "setup:all": "node scripts/setup.js --all",
+    "setup:agent": "node scripts/setup.js --agent"
+  },
+  "keywords": [
+    "openclaw",
+    "agent",
+    "shared-memory",
+    "multi-channel",
+    "feishu",
+    "chatbot"
+  ],
+  "author": "Kai ⚡",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YOUR_USERNAME/agent-shared-memory"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
