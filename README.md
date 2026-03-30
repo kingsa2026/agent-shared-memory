@@ -61,14 +61,11 @@ workspace/
 2. 读取 workspace/memory/CONTEXT.md
 
 ### 收到任务时
-- 立即写入 TASKS.md
+- 写入 TASKS.md
 - 格式：- [ ] [任务] @[来源] @[时间]
 
-### 回答问题前
-- 必须引用 TASKS.md 内容
-
 ### 完成任务时
-- 立即更新 TASKS.md，标记为 Done
+- 更新 TASKS.md，标记为 Done
 
 ## 快速验证
 

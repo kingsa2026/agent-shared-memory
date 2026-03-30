@@ -12,29 +12,19 @@ const path = require('path');
 // Agent 列表
 const AGENTS = ['bobby', 'doudou', 'kai', 'lucy', 'nicy', 'xiaolong', 'xiaoxiami', 'yoyo'];
 
-// SOUL.md 追加的协议内容
+// SOUL.md 追加的协议内容（修复版 - 不含强制规则）
 const PROTOCOL_SECTION = `
 
 ---
 
-## 🚨 SHARED MEMORY PROTOCOL (MANDATORY)
+## Memory Protocol
 
-### Every conversation start:
-1. READ \`workspace/memory/TASKS.md\`
-2. READ \`workspace/memory/CONTEXT.md\`
+At the start of each conversation:
+1. Read \`workspace/memory/TASKS.md\` to understand current tasks
+2. Read \`workspace/memory/CONTEXT.md\` for project context
 
-### When receiving tasks:
-- IMMEDIATELY write to \`workspace/memory/TASKS.md\`
-- Format: \`- [ ] [task] @[source] @[time]\`
-
-### Before answering:
-- MUST quote TASKS.md content in your response
-- In your answer header, state: "Based on TASKS.md, you have the following tasks..."
-
-### When completing tasks:
-- IMMEDIATELY update TASKS.md as ✅ Done
-
-**This is mandatory! Failure to comply = failure!**
+When receiving tasks: Write to TASKS.md immediately.
+When completing tasks: Update TASKS.md status.
 `;
 
 // TASKS.md 模板
@@ -70,29 +60,19 @@ _最后更新时间：_
 - 
 `;
 
-// PROTOCOL.md 模板
+// PROTOCOL.md 模板（修复版）
 const PROTOCOL_DOC = `# 共享记忆协议
 
-## 🚨 最高优先级规则
+## 每次对话开始时
+1. **读取** \`workspace/memory/TASKS.md\` 了解当前任务
+2. **读取** \`workspace/memory/CONTEXT.md\` 获取项目上下文
 
-### 每次对话开始时
-1. **读取** \`workspace/memory/TASKS.md\`
-2. **读取** \`workspace/memory/CONTEXT.md\`
-
-### 收到任务时
-- **立即写入** \`TASKS.md\`
+## 收到任务时
+- **写入** \`TASKS.md\`
 - 格式：\`- [ ] [任务] @[来源] @[时间]\`
 
-### 回答问题前
-- **必须引用** \`TASKS.md\` 内容
-- 在回答开头说明当前任务状态
-
-### 完成任务时
-- **立即更新** \`TASKS.md\`，标记为 ✅ 已完成
-
----
-
-**这是强制协议，不遵守就等于失职！**
+## 完成任务时
+- **更新** \`TASKS.md\`，标记为 ✅ 已完成
 `;
 
 function setupAgent(agentName) {
